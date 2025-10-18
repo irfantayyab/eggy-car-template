@@ -1,20 +1,17 @@
 import { useTranslations } from "next-intl";
 import React from "react";
+import SectionTitle from "@/components/common/section-title";
+import SectionContent from "@/components/common/section-content";
+import { HomePageSectionData } from "@/types/homepage-section-data";
 
 function WhatIsEggyCar() {
- const t = useTranslations("Homepage");
+ const { title, content } = useTranslations().raw("Homepage.whatIsEggyCar") as HomePageSectionData;
 
  return (
   <>
    <section>
-    <header className="mb-4 flex h-[60px] items-center justify-between gap-3 bg-slate-300 px-6 py-2">
-     {t("whatIsEggyCar.title")}
-    </header>
-    <main className="pb-4">
-     <p>{t("whatIsEggyCar.p1")}</p>
-     <br />
-     <p>{t("whatIsEggyCar.p2")}</p>
-    </main>
+    <SectionTitle id="what-is-eggy-car" title={title} />
+    <SectionContent content={content} />
    </section>
   </>
  );

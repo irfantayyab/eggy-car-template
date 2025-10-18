@@ -8,16 +8,18 @@ function Footer() {
 
  return (
   <>
-   <footer className="flex flex-col items-center justify-between gap-3 bg-slate-300 px-6 py-2">
-    <p className="text-2xl font-medium">
-     <Link href="/" draggable={false}>
-      EggyCar
-     </Link>
+   <footer className="bg-primary flex flex-col items-center justify-between px-10 py-5 text-[15px] font-light">
+    <p>
+     ©{" "}
+     <Link href="/" draggable={false} className="font-bold underline">
+      Eggy Car
+     </Link>{" "}
+     | Official Unblocked Play Online
     </p>
-    <nav className="flex gap-4">
+    <nav className="flex gap-1">
      {FOOTER_NAV_LINKS.map((link, i) => {
       return (
-       <Link key={link.id} href={link.href}>
+       <Link key={link.id} href={link.href} className="underline">
         {t(`navigation.link${i + 1}`)}
        </Link>
       );

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Aleo } from "next/font/google";
 import "../globals.css";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
@@ -8,20 +8,15 @@ import { NextIntlClientProvider } from "next-intl";
 import Header from "@/components/common/header";
 import Footer from "@/components/common/footer";
 
-const geistSans = Geist({
- variable: "--font-geist-sans",
- subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
- variable: "--font-geist-mono",
+const aleoMono = Aleo({
+ variable: "--font-aleo-mono",
  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
- title: "EggyCar",
+ title: "Eggy Car Play Unblocked For Free (Offical)",
  description:
-  "Beedo Games launched Eggy Car in July 2022, a driving game packed with physics fun. Imagine a car with a wobbly egg as your VIP passenger, fragile as a glass ornament. The mission? Keep that egg safe on roads bumpier than a dirt trail after rain. A fall or crack means game over, bro.",
+  "Eggy Car’s a wild ride! Steer a car with a fragile egg over bumpy hills. One wrong move, and the egg cracks like a dropped glass!",
 };
 
 export default async function RootLayout({
@@ -40,10 +35,12 @@ export default async function RootLayout({
 
  return (
   <html lang={locale}>
-   <body className={`${geistSans.variable} ${geistMono.variable} flex min-h-screen flex-col antialiased`}>
+   <body
+    className={`${aleoMono.variable} flex min-h-screen flex-col font-mono text-[17px] font-light antialiased`}
+   >
     <NextIntlClientProvider messages={messages}>
      <Header />
-     <main className="flex-stretch">{children}</main>
+     <main className="flex-stretch p-10">{children}</main>
      <Footer />
     </NextIntlClientProvider>
    </body>
