@@ -221,6 +221,60 @@
    }
   ]
  },
+ "instructions": {
+  "title": "Instructions",
+  "content": [
+   {
+    "type": "paragraph",
+    "text": "Balance and control are the soul of Eggy Car. It’s a test of patience, focus, and driving finesse. Here’s how to crush it:"
+   },
+   {
+    "type": "list",
+    "content": [
+     {
+      "text": "Use A / D or Left / Right arrows to move. Drive far without turning the egg into a scrambled disaster."
+     },
+     {
+      "text": " Scoop up coins to unlock wicked new rides, like trading up for a shinier bike. Longer drives pile up more coins."
+     },
+     {
+      "text": "Grab a Freeze power-up to pin the egg down for a few seconds, like pausing a wild puppy."
+     },
+     {
+      "text": "Balance is the heart of Eggy Car. Speeding too fast is like shaking a soda can; the egg’s gone. Climb hills with enough speed, though, or you’re stuck. Early runs feel tough, like learning to ride a bike, but practice makes it click."
+     },
+     {
+      "text": "Coins unlock new cars, each with its own flair. Some zoom like jets, others hold steady like boulders. Pick one to roll far and keep the egg safe. A sleek car races fast but shakes the egg like a maraca. A big truck’s slower but cradles the egg like a cozy blanket. Test both to find your groove, like picking the perfect playlist."
+     }
+    ]
+   }
+  ]
+ },
+ "tipsAndTricks": {
+  "title": "5 Handy Tips & Tricks to Beat an Eggy Car",
+  "content": [
+   {
+    "type": "list",
+    "content": [
+     {
+      "text": "Gentle throttle control is required. Zooming’s like shaking a fragile vase, egg’s doomed. Tap the gas lightly, especially on steep hills, for a ride smoother than butter."
+     },
+     {
+      "text": "Be patient, and don’t rush. No timer’s breathing down your neck. Rushing’s like running on ice, egg falls fast. Slow moves beat speedy ones, like a tortoise outsmarting a hare."
+     },
+     {
+      "text": "Reverse and apply the brakes carefully. Holding the A or Left Arrow too long downhill is like slamming a door, egg slides. Tap gently for control, like petting a shy cat."
+     },
+     {
+      "text": "Take caution with the frozen gems. Freeze power-ups glue the egg down, even on wild rides. But they fade quickly, like a short nap. Speeding when it wears off is like forgetting an umbrella in a storm, egg crashes hard."
+     },
+     {
+      "text": "Do not become frustrated if you fail too many times. Flopping’s part of Eggy Car, like spilling juice at breakfast. Keep playing, learn from mess-ups, and you’ll nail it like a pro."
+     }
+    ]
+   }
+  ]
+ },
  "gamescapeStyle": {
   "title": "Gamescape Style",
   "content": [

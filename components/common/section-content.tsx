@@ -88,6 +88,14 @@ function SectionContent({ content }: { content: ContentBlock[] }) {
         })}
        </React.Fragment>
       );
+     } else if (block.type === "list") {
+      return (
+       <ul key={i} className="mb-[25.5px] list-disc pl-[3em] leading-[1.5]">
+        {block.content.map((li, j) => {
+         return <li key={j}>{li.text}</li>;
+        })}
+       </ul>
+      );
      }
     })}
    </main>
