@@ -5,12 +5,12 @@ import SectionContent from "@/components/common/section-content";
 import { HomePageSectionData } from "@/types/homepage-section-data";
 
 function Popularity() {
- const { title, content } = useTranslations().raw("Homepage.popularity") as HomePageSectionData;
+ const { id, title, content } = useTranslations().raw("Homepage.popularity") as HomePageSectionData;
 
  return (
   <>
    <section>
-    <SectionTitle id="popularity" title={title} />
+    <SectionTitle id={id} title={title} />
     <SectionContent content={content} />
    </section>
   </>

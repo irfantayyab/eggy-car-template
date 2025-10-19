@@ -3,6 +3,7 @@ import { ContentBlock } from "@/types/content-block";
 import React from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
 import { Link } from "@/i18n/routing";
+import { Minus, Plus } from "lucide-react";
 
 function SectionContent({ content }: { content: ContentBlock[] }) {
  return (
@@ -34,7 +35,7 @@ function SectionContent({ content }: { content: ContentBlock[] }) {
         )}
        </figure>
       );
-     } else if (block.type === "accordion") {
+     } else if (block.type === "accordion-1") {
       return (
        <Accordion
         key={i}
@@ -70,10 +71,45 @@ function SectionContent({ content }: { content: ContentBlock[] }) {
         </AccordionItem>
        </Accordion>
       );
+     } else if (block.type === "accordion-2") {
+      return (
+       <Accordion
+        key={i}
+        type="multiple"
+        className="mb-[15px] flex w-full flex-col gap-[15px] rounded-tl-[50px] rounded-br-[50px]"
+       >
+        {block.items.map((item, j) => {
+         return (
+          <AccordionItem
+           key={j}
+           value={`item-${j + 1}`}
+           className="overflow-hidden rounded-[6px] border border-[#bcb6b638]"
+          >
+           <AccordionTrigger
+            className="bg-primary rounded-none p-0 px-[22px] py-[13px] text-[17px] font-light"
+            icon={
+             <>
+              <Plus id="svg-1" />
+              <Minus id="svg-2" />
+             </>
+            }
+           >
+            {item.title}
+           </AccordionTrigger>
+           <AccordionContent className="flex flex-col gap-4 px-[22px] py-[13px] text-[17px] font-light text-balance">
+            <p className="mb-1">{item.content}</p>
+           </AccordionContent>
+          </AccordionItem>
+         );
+        })}
+       </Accordion>
+      );
      } else if (block.type === "subsection") {
       return (
        <React.Fragment key={i}>
-        <h3 className="mb-5 text-[30px] leading-[50.4px]">{block.title}</h3>
+        <h3 id={block.id} className="mb-5 text-[30px] leading-[50.4px]">
+         {block.title}
+        </h3>
         {block.content.map((subBlock, j, arrJ) => {
          const isNextNewLine = arrJ[j + 1]?.type === "new-line";
          if (subBlock.type === "paragraph") {

@@ -5,12 +5,12 @@ import SectionContent from "@/components/common/section-content";
 import { HomePageSectionData } from "@/types/homepage-section-data";
 
 function GameLevels() {
- const { title, content } = useTranslations().raw("Homepage.gameLevels") as HomePageSectionData;
+ const { id, title, content } = useTranslations().raw("Homepage.gameLevels") as HomePageSectionData;
 
  return (
   <>
    <section>
-    <SectionTitle id="game-levels" title={title} />
+    <SectionTitle id={id} title={title} />
     <SectionContent content={content} />
    </section>
   </>

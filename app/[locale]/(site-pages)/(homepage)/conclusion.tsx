@@ -4,8 +4,8 @@ import SectionTitle from "@/components/common/section-title";
 import SectionContent from "@/components/common/section-content";
 import { HomePageSectionData } from "@/types/homepage-section-data";
 
-function SafeForChildren() {
- const { id, title, content } = useTranslations().raw("Homepage.safeForChildren") as HomePageSectionData;
+function Conclusion() {
+ const { id, title, content } = useTranslations().raw("Homepage.conclusion") as HomePageSectionData;
 
  return (
   <>
@@ -17,4 +17,4 @@ function SafeForChildren() {
  );
 }
 
-export default SafeForChildren;
+export default Conclusion;

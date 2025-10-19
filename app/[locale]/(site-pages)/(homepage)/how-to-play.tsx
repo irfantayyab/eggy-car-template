@@ -5,12 +5,12 @@ import SectionContent from "@/components/common/section-content";
 import { HomePageSectionData } from "@/types/homepage-section-data";
 
 function HowToPlay() {
- const { title, content } = useTranslations().raw("Homepage.howToPlay") as HomePageSectionData;
+ const { id, title, content } = useTranslations().raw("Homepage.howToPlay") as HomePageSectionData;
 
  return (
   <>
    <section>
-    <SectionTitle id="how-to-play" title={title} />
+    <SectionTitle id={id} title={title} />
     <SectionContent content={content} />
    </section>
   </>

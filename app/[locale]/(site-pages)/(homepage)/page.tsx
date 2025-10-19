@@ -1,4 +1,6 @@
+import Conclusion from "./conclusion";
 import EarnRewards from "./earn-rewards";
+import FAQs from "./faqs";
 import GameControls from "./game-controls";
 import GameLevels from "./game-levels";
 import GamescapeStyle from "./gamescape-style";
@@ -25,9 +27,11 @@ export default function HomePage() {
    <GamescapeStyle />
    <GameLevels />
    <TipsAndTricks />
+   <SafeForChildren />
    <Popularity />
    <RelatedGames />
-   <SafeForChildren />
+   <FAQs />
+   <Conclusion />
   </>
  );
 }
