@@ -10,18 +10,29 @@ export default getRequestConfig(async ({ requestLocale }) => {
   locale = routing.defaultLocale;
  }
 
- const [header, footer, homepage] = await Promise.all([
-  import(`./locales/${locale}/header.json`),
-  import(`./locales/${locale}/footer.json`),
-  import(`./locales/${locale}/homepage.json`),
- ]);
+ const [footer, notFound, homepage, contactUs, aboutUs, privacyPolicy, disclaimer, termsAndConditions] =
+  await Promise.all([
+   import(`./locales/${locale}/footer.ts`),
+   import(`./locales/${locale}/not-found.ts`),
+   import(`./locales/${locale}/homepage/index.ts`),
+   import(`./locales/${locale}/contact-us/index.ts`),
+   import(`./locales/${locale}/about-us/index.ts`),
+   import(`./locales/${locale}/privacy-policy/index.ts`),
+   import(`./locales/${locale}/disclaimer/index.ts`),
+   import(`./locales/${locale}/terms-and-conditions/index.ts`),
+  ]);
 
  return {
   locale,
   messages: {
-   Header: header.default,
    Footer: footer.default,
+   NotFound: notFound.default,
    Homepage: homepage.default,
+   ContactUs: contactUs.default,
+   AboutUs: aboutUs.default,
+   PrivacyPolicy: privacyPolicy.default,
+   Disclaimer: disclaimer.default,
+   TermsAndConditions: termsAndConditions.default,
   },
  };
 });

@@ -1,11 +1,11 @@
 import { cn } from "@/lib/utils";
-import { ContentBlock } from "@/types/content-block";
+import { ContentItem } from "@/types/common";
 import React from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
 import { Link } from "@/i18n/routing";
 import { Minus, Plus } from "lucide-react";
 
-function SectionContent({ content }: { content: ContentBlock[] }) {
+function SectionContent({ content }: { content: ContentItem[] }) {
  return (
   <>
    <main>
@@ -42,33 +42,45 @@ function SectionContent({ content }: { content: ContentBlock[] }) {
         type="single"
         collapsible
         className="gradient-box-shadow mb-[25.5px] w-full rounded-tl-[50px] rounded-br-[50px] p-6"
-        defaultValue="item-1"
        >
-        <AccordionItem value="item-1">
-         <AccordionTrigger className="p-0 text-[18.7px] font-bold">{block.title}</AccordionTrigger>
-         <AccordionContent className="mt-6 flex flex-col gap-4 text-[17px] font-light text-balance">
-          <ul className="list-disc pl-[1.75em] leading-[1.5] underline">
-           {block.list.map((li, j) => {
-            return (
-             <li key={j}>
-              <Link href={li.href}>{li.text}</Link>
-              {li.sublist && (
-               <ul className="ml-[1.5em] list-disc">
-                {li.sublist.map((sli, k) => {
+        {block.items.map((item, j) => (
+         <AccordionItem key={j} value={`item-${j + 1}`}>
+          <AccordionTrigger className="p-0 text-[18.7px] font-bold">{item.title}</AccordionTrigger>
+          <AccordionContent className="mt-6 flex flex-col gap-4 p-0 text-[17px] font-light text-balance">
+           {Array.isArray(item.content) ? (
+            item.content.map((contentItem, k) => {
+             if (contentItem.type === "list") {
+              return (
+               <ul key={k} className="list-disc pl-[1.75em] leading-[1.5] underline">
+                {contentItem.listItems.map((li, l) => {
                  return (
-                  <li key={k}>
-                   <Link href={sli.href}>{sli.text}</Link>
+                  <li key={l}>
+                   <Link href={li.href || "#"}>{li.text}</Link>
+                   {li.sublist && (
+                    <ul className="ml-[1.5em] list-disc">
+                     {li.sublist.map((sli, m) => {
+                      return (
+                       <li key={m}>
+                        <Link href={sli.href || "#"}>{sli.text}</Link>
+                       </li>
+                      );
+                     })}
+                    </ul>
+                   )}
                   </li>
                  );
                 })}
                </ul>
-              )}
-             </li>
-            );
-           })}
-          </ul>
-         </AccordionContent>
-        </AccordionItem>
+              );
+             }
+             return null;
+            })
+           ) : (
+            <p>{item.content}</p>
+           )}
+          </AccordionContent>
+         </AccordionItem>
+        ))}
        </Accordion>
       );
      } else if (block.type === "accordion-2") {
@@ -97,7 +109,7 @@ function SectionContent({ content }: { content: ContentBlock[] }) {
             {item.title}
            </AccordionTrigger>
            <AccordionContent className="flex flex-col gap-4 px-[22px] py-[13px] text-[17px] font-light text-balance">
-            <p className="mb-1">{item.content}</p>
+            <p className="mb-1">{item.content as string}</p>
            </AccordionContent>
           </AccordionItem>
          );
@@ -125,18 +137,20 @@ function SectionContent({ content }: { content: ContentBlock[] }) {
            </p>
           );
          }
+         return null;
         })}
        </React.Fragment>
       );
      } else if (block.type === "list") {
       return (
        <ul key={i} className="mb-[25.5px] list-disc pl-[3em] leading-[1.5]">
-        {block.content.map((li, j) => {
+        {block.listItems.map((li, j) => {
          return <li key={j}>{li.text}</li>;
         })}
        </ul>
       );
      }
+     return null;
     })}
    </main>
   </>

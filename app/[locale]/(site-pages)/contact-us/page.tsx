@@ -1,7 +1,12 @@
 import React from "react";
+import Intro from "./intro";
 
 function ContactUs() {
- return <>ContactUs</>;
+ return (
+  <>
+   <Intro />
+  </>
+ );
 }
 
 export default ContactUs;

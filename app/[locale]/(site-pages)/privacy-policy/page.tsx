@@ -1,7 +1,12 @@
 import React from "react";
+import Intro from "./intro";
 
 function PrivacyPolicy() {
- return <>PrivacyPolicy</>;
+ return (
+  <>
+   <Intro />
+  </>
+ );
 }
 
 export default PrivacyPolicy;

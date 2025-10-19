@@ -11,13 +11,7 @@ function Accordion({ ...props }: React.ComponentProps<typeof AccordionPrimitive.
 }
 
 function AccordionItem({ className, ...props }: React.ComponentProps<typeof AccordionPrimitive.Item>) {
- return (
-  <AccordionPrimitive.Item
-   data-slot="accordion-item"
-   className={cn("border-b last:border-b-0", className)}
-   {...props}
-  />
- );
+ return <AccordionPrimitive.Item data-slot="accordion-item" className={cn("", className)} {...props} />;
 }
 
 function AccordionTrigger({
@@ -25,7 +19,9 @@ function AccordionTrigger({
  children,
  icon,
  ...props
-}: React.ComponentProps<typeof AccordionPrimitive.Trigger>) {
+}: React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger> & {
+ icon?: React.ReactNode;
+}) {
  return (
   <AccordionPrimitive.Header className="flex">
    <AccordionPrimitive.Trigger

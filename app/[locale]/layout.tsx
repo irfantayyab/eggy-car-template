@@ -32,6 +32,7 @@ export default async function RootLayout({
  if (!routing.locales.includes(locale as any)) {
   notFound();
  }
+
  const messages = await getMessages();
 
  return (
@@ -40,9 +41,11 @@ export default async function RootLayout({
     className={`${aleoMono.variable} flex min-h-screen flex-col font-mono text-[17px] font-light antialiased`}
    >
     <NextIntlClientProvider messages={messages}>
-     <Header />
-     <main className="flex-stretch bg-white p-10">{children}</main>
-     <Footer />
+     <div id="app" className="mx-auto max-w-[1200px]">
+      <Header />
+      <main className="flex-stretch bg-white p-[30px] md:p-10">{children}</main>
+      <Footer />
+     </div>
     </NextIntlClientProvider>
     <Analytics />
    </body>
