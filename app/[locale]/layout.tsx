@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Aleo } from "next/font/google";
 import "../globals.css";
@@ -43,6 +44,7 @@ export default async function RootLayout({
      <main className="flex-stretch bg-white p-10">{children}</main>
      <Footer />
     </NextIntlClientProvider>
+    <Analytics />
    </body>
   </html>
  );
