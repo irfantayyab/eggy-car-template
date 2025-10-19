@@ -24,10 +24,14 @@ function SectionContent({ content }: { content: ContentBlock[] }) {
        </p>
       );
      } else if (block.type === "image") {
+      const caption = block.caption;
+
       return (
        <figure key={i}>
-        <img src={block.src} className="mx-auto mb-[25.5px] block w-[950px]" />
-        {block.caption && <figcaption>{block.caption}</figcaption>}
+        <img src={block.src} className={cn("mx-auto block w-[950px]", !caption ? "mb-[25.5px]" : "")} />
+        {caption && (
+         <figcaption className="mt-[6.5px] mb-[13px] text-center text-[13px]">{caption}</figcaption>
+        )}
        </figure>
       );
      } else if (block.type === "accordion") {

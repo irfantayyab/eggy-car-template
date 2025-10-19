@@ -288,6 +288,115 @@
    }
   ]
  },
+ "popularity": {
+  "title": "Why is Eggy Car popular among children?",
+  "content": [
+   {
+    "type": "subsection",
+    "title": "Fun and Easy to Play",
+    "content": [
+     {
+      "type": "paragraph",
+      "text": "Learning Eggy Car’s a snap, like tying a friendship bracelet. Kids grasp the rules fast, steering and balancing the egg like it’s no big deal. Small challenges keep it spicy, like a treasure hunt. They play again to hone skills and boost scores, like leveling up in a video game."
+     }
+    ]
+   },
+   {
+    "type": "subsection",
+    "title": "Improves Coordination and Patience",
+    "content": [
+     {
+      "type": "paragraph",
+      "text": "Balancing the egg sharpens hand-eye coordination, like threading a needle in art class. Kids learn careful moves, precise as a painter’s brush. Patience grows as they plan drives on rough roads, focusing like a hawk on a hunt."
+     }
+    ]
+   },
+   {
+    "type": "subsection",
+    "title": "Promotes Healthy Competition",
+    "content": [
+     {
+      "type": "paragraph",
+      "text": "Kids challenge themselves or pals to top scores, like racing bikes in the neighborhood. Beating their best or a friend’s score fuels more play. Improving feels like scoring a goal, fun and thrilling as a rollercoaster drop!"
+     }
+    ]
+   },
+   {
+    "type": "image",
+    "src": "/homepage/popularity.webp",
+    "caption": "Eggy Car"
+   }
+  ]
+ },
+ "relatedGames": {
+  "title": "Eggy Car-related games",
+  "content": [
+   {
+    "type": "paragraph",
+    "text": "Craving more games to flex driving, reflexes, and skills? Check these out, like picking new flavors at an ice cream shop:"
+   },
+   {
+    "type": "subsection",
+    "title": "Drive Mad",
+    "content": [
+     {
+      "type": "paragraph",
+      "text": "Drive Mad tosses you into cars and trucks on tracks stuffed with obstacles, like a jungle gym for wheels. Reach the finish without flipping. Balance is your lifeline, like walking a tightrope."
+     }
+    ]
+   },
+   {
+    "type": "subsection",
+    "title": "Escape Road",
+    "content": [
+     {
+      "type": "paragraph",
+      "text": "A high-speed escape game where one slip-up ends it, like a high-stakes hide-and-seek. Precision’s your only buddy."
+     }
+    ]
+   },
+   {
+    "type": "subsection",
+    "title": "Cool Math Games",
+    "content": [
+     {
+      "type": "paragraph",
+      "text": "Cool Math Games offers Eggy Car unblocked for school play, like sneaking in fun during a break. Physics-based challenges keep it a blast."
+     }
+    ]
+   },
+   {
+    "type": "subsection",
+    "title": "Hooda Math",
+    "content": [
+     {
+      "type": "paragraph",
+      "text": "Hooda Math has Eggy Car unblocked, too, like a secret playground. Kids love it, and it sneaks in math skill fun, like learning while munching candy."
+     }
+    ]
+   },
+   {
+    "type": "subsection",
+    "title": "Drift Boss",
+    "content": [
+     {
+      "type": "paragraph",
+      "text": "Drift Boss is about nailing drift timing on tight, tricky tracks, like dancing on a tiny stage. Stay sharp to keep rolling."
+     }
+    ]
+   },
+   {
+    "type": "subsection",
+    "title": "Snow Rider",
+    "content": [
+     {
+      "type": "paragraph",
+      "text": "Ride a sled down snowy slopes in this winter game, like Eggy Car with a frosty twist. Go far while keeping control, like sledding down a hill."
+     }
+    ]
+   }
+  ]
+ },
  "gameLevels": {
   "title": "Game Levels",
   "content": [

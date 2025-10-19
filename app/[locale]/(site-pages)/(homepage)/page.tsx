@@ -5,6 +5,8 @@ import GamescapeStyle from "./gamescape-style";
 import HowToPlay from "./how-to-play";
 import Instructions from "./instructions";
 import Intro from "./intro";
+import Popularity from "./popularity";
+import RelatedGames from "./related-games";
 import SafeForChildren from "./safe-for-children";
 import TipsAndTricks from "./tips-and-tricks";
 import Upgrades from "./upgrades";
@@ -23,6 +25,8 @@ export default function HomePage() {
    <GamescapeStyle />
    <GameLevels />
    <TipsAndTricks />
+   <Popularity />
+   <RelatedGames />
    <SafeForChildren />
   </>
  );
