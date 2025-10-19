@@ -40,7 +40,7 @@ export default async function RootLayout({
    >
     <NextIntlClientProvider messages={messages}>
      <Header />
-     <main className="flex-stretch p-10">{children}</main>
+     <main className="flex-stretch bg-white p-10">{children}</main>
      <Footer />
     </NextIntlClientProvider>
    </body>

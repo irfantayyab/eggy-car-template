@@ -1,4 +1,5 @@
 import EarnRewards from "./earn-rewards";
+import GameControls from "./game-controls";
 import GameLevels from "./game-levels";
 import GamescapeStyle from "./gamescape-style";
 import HowToPlay from "./how-to-play";
@@ -15,6 +16,7 @@ export default function HomePage() {
    <HowToPlay />
    <EarnRewards />
    <Upgrades />
+   <GameControls />
    <GamescapeStyle />
    <GameLevels />
    <SafeForChildren />

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
- --background: #ffffff;
+ --background: #f7f8f9;
  --primary: #eae329;
  --body: #222222;
 }
@@ -25,6 +25,11 @@ body {
  color: var(--body);
  max-width: 1200px;
  margin: 0 auto;
+ line-height: 1.5;
+}
+
+button {
+ cursor: pointer;
 }
 
 .flex-stretch {
@@ -71,4 +76,8 @@ body {
   aspect-ratio: 3 / 4;
   max-width: 95%;
  }
+}
+
+.gradient-box-shadow {
+ box-shadow: inset 0px 0px 60px -15px rgba(246, 255, 21, 0.91);
 }
