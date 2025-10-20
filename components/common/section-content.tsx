@@ -2,7 +2,6 @@ import { cn } from "@/lib/utils";
 import { ContentItem } from "@/types/common";
 import React from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
-import { Link } from "@/i18n/routing";
 import { Minus, Plus } from "lucide-react";
 import { parseRichText } from "@/lib/parse-rich-text";
 
@@ -99,7 +98,7 @@ function SectionContent({ content }: { content: ContentItem[] }) {
            className="overflow-hidden rounded-[6px] border border-[#bcb6b638]"
           >
            <AccordionTrigger
-            className="bg-primary rounded-none p-0 px-[22px] py-[13px] text-[17px] font-light"
+            className="bg-primary text-primary-foreground rounded-none p-0 px-[22px] py-[13px] text-[17px] font-light"
             icon={
              <>
               <Plus id="svg-1" />

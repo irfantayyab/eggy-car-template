@@ -7,13 +7,14 @@ import LogoImage from "@/public/logo.webp";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import ThemeSwitcher from "@/components/custom/theme-switcher";
 
 function Header() {
  const [isOpen, setIsOpen] = useState<boolean>(false);
 
  return (
   <>
-   <header className="bg-primary px-[30px] py-5 md:h-[100px] md:px-10">
+   <header className="bg-primary text-primary-foreground px-[30px] py-5 md:h-[100px] md:px-10">
     <div className={cn("flex justify-between gap-3 md:items-center", isOpen ? "pb-0" : "")}>
      <p className="text-2xl font-medium">
       <Link href="/" draggable={false}>
@@ -21,6 +22,7 @@ function Header() {
       </Link>
      </p>
      <div className="hidden md:flex">
+      <ThemeSwitcher />
       <Link
        href="/"
        className="flex h-[60px] items-center bg-[#00000005] px-5 text-[19px] font-bold hover:bg-white"
@@ -29,7 +31,8 @@ function Header() {
       </Link>
       <LanguageSwitcher />
      </div>
-     <div className="md:hidden">
+     <div className="flex gap-2 md:hidden">
+      <ThemeSwitcher />
       <button
        onClick={() => setIsOpen(!isOpen)}
        className="flex size-[60px] items-center justify-center bg-[#00000005]"

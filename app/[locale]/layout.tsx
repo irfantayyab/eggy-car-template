@@ -9,6 +9,7 @@ import { NextIntlClientProvider } from "next-intl";
 import Header from "@/app/[locale]/header";
 import Footer from "@/app/[locale]/footer";
 import ScrollUpButton from "@/components/custom/scroll-up-button";
+import ThemeContextProvider from "@/contexts/theme-context";
 
 const aleoMono = Aleo({
  variable: "--font-aleo-mono",
@@ -37,20 +38,22 @@ export default async function RootLayout({
  const messages = await getMessages();
 
  return (
-  <html lang={locale}>
+  <html lang={locale} suppressHydrationWarning>
    <body
-    className={`${aleoMono.variable} flex min-h-screen flex-col font-mono text-[17px] font-light antialiased`}
+    className={`${aleoMono.variable} bg-html-background text-body flex min-h-screen flex-col font-mono text-[17px] font-light antialiased`}
    >
-    <NextIntlClientProvider messages={messages}>
-     <div id="app" className="mx-auto flex min-h-screen max-w-[1200px] flex-col">
-      <Header />
-      <main className="flex-stretch bg-white p-[30px] md:p-10">{children}</main>
-      <Footer />
-      <ScrollUpButton />
-     </div>
-    </NextIntlClientProvider>
-    <Analytics />
+    <ThemeContextProvider>
+     <NextIntlClientProvider messages={messages}>
+      <div id="app" className="mx-auto flex min-h-screen max-w-[1200px] flex-col">
+       <Header />
+       <main className="flex-stretch bg-background p-[30px] md:p-10">{children}</main>
+       <Footer />
+       <ScrollUpButton />
+      </div>
+     </NextIntlClientProvider>
+    </ThemeContextProvider>
    </body>
+   <Analytics />
   </html>
  );
 }

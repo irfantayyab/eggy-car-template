@@ -25,7 +25,7 @@ function ScrollUpButton() {
  return (
   <button
    className={cn(
-    "fixed right-[30px] bottom-[30px] flex size-10 items-center justify-center bg-[#b3ae35] text-white transition-all hover:bg-[#00000099]",
+    "dark:text-primary-foreground fixed right-[30px] bottom-[30px] flex size-10 items-center justify-center bg-[#b3ae35] text-white transition-all hover:bg-[#00000099] dark:hover:bg-white",
     isVisible ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0",
    )}
    onClick={scrollToTop}

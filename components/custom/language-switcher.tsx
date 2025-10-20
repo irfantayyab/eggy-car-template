@@ -24,7 +24,7 @@ export default function LanguageSwitcher({ className }: { className?: string }) 
    >
     <SelectValue placeholder="Select language" />
    </SelectTrigger>
-   <SelectContent className="bg-primary rounded-none border-0 font-bold">
+   <SelectContent className="bg-primary text-primary-foreground rounded-none border-0 font-bold">
     {LANGUAGES.map(loc => (
      <SelectItem
       key={loc.name}

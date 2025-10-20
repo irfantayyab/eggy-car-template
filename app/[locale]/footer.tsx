@@ -8,7 +8,7 @@ function Footer() {
 
  return (
   <>
-   <footer className="bg-primary flex flex-col items-center justify-between px-10 py-5 text-[15px] font-light">
+   <footer className="bg-primary text-primary-foreground flex flex-col items-center justify-between px-10 py-5 text-[15px] font-light">
     <p>
      ©{" "}
      <Link href="/" draggable={false} className="font-bold underline">
