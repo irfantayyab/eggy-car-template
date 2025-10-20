@@ -1,10 +1,10 @@
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { headers } from "next/headers";
-import Header from "@/components/common/header";
+import Header from "@/app/[locale]/header";
 import Heading from "@/components/common/heading";
 import SectionContent from "@/components/common/section-content";
-import Footer from "@/components/common/footer";
+import Footer from "@/app/[locale]/footer";
 import "./globals.css";
 import { Aleo } from "next/font/google";
 import { Locale, routing } from "@/i18n/routing";

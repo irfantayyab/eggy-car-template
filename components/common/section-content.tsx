@@ -56,13 +56,13 @@ function SectionContent({ content }: { content: ContentItem[] }) {
                 {contentItem.listItems.map((li, l) => {
                  return (
                   <li key={l}>
-                   <Link href={li.href || "#"}>{parseRichText(li.text, li.inlines)}</Link>
+                   <a href={li.href || "#"}>{parseRichText(li.text, li.inlines)}</a>
                    {li.sublist && (
                     <ul className="ml-[1.5em] list-disc">
                      {li.sublist.map((sli, m) => {
                       return (
                        <li key={m}>
-                        <Link href={sli.href || "#"}>{parseRichText(sli.text, sli.inlines)}</Link>
+                        <a href={sli.href || "#"}>{parseRichText(sli.text, sli.inlines)}</a>
                        </li>
                       );
                      })}

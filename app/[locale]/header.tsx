@@ -2,7 +2,7 @@
 
 import { Link } from "@/i18n/routing";
 import React, { useState } from "react";
-import LanguageSwitcher from "../custom/language-switcher";
+import LanguageSwitcher from "../../components/custom/language-switcher";
 import LogoImage from "@/public/logo.webp";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";

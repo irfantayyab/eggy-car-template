@@ -6,8 +6,8 @@ import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import { getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
-import Header from "@/components/common/header";
-import Footer from "@/components/common/footer";
+import Header from "@/app/[locale]/header";
+import Footer from "@/app/[locale]/footer";
 import ScrollUpButton from "@/components/custom/scroll-up-button";
 
 const aleoMono = Aleo({
