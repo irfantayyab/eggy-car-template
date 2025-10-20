@@ -2,7 +2,7 @@
 
 import { Link } from "@/i18n/routing";
 import React, { useState } from "react";
-import LanguageSwitcher from "../language-switcher";
+import LanguageSwitcher from "../custom/language-switcher";
 import LogoImage from "@/public/logo.webp";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
@@ -21,11 +21,12 @@ function Header() {
       </Link>
      </p>
      <div className="hidden md:flex">
-      <p className="px-5">
-       <Link href="/" className="text-[19px] font-bold">
-        Eggy Car
-       </Link>
-      </p>
+      <Link
+       href="/"
+       className="flex h-[60px] items-center bg-[#00000005] px-5 text-[19px] font-bold hover:bg-white"
+      >
+       Eggy Car
+      </Link>
       <LanguageSwitcher />
      </div>
      <div className="md:hidden">

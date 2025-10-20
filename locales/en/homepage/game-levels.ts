@@ -7,7 +7,13 @@ export const gameLevels: Section = {
   {
    type: "paragraph",
    text:
-    "Eggy Car keeps it simple with one endless mode, like a road trip with no end. No levels, no checkpoints, no timers ticking. Each run starts fresh with a new egg, like a blank page in a sketchbook. Success means topping your last distance and unlocking cars with coins. Practice is your co-pilot, it's how you go further and further!",
+    "<1>Eggy Car<1> keeps it simple with one endless mode, like a road trip with no end. No levels, no checkpoints, no timers ticking. Each run starts fresh with a new egg, like a blank page in a sketchbook. Success means topping your last distance and unlocking cars with coins. Practice is your co-pilot, it's how you go further and further!",
+   inlines: {
+    "1": {
+     type: "link",
+     href: "/",
+    },
+   },
   },
   {
    type: "paragraph",

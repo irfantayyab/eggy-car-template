@@ -5,20 +5,28 @@
  --background: #f7f8f9;
  --primary: #eae329;
  --body: #222222;
+ --link: #1e73be;
 }
 
 @media (prefers-color-scheme: dark) {
  :root {
   --background: #222222;
-  --color-primary: var(--primary);
+  --primary: var(--primary);
   --body: #ffffff;
+  --link: #1e73be;
  }
 }
 
 @theme inline {
+ --color-background: var(--background);
  --color-primary: var(--primary);
  --color-body: var(--body);
+ --color-link: var(--link);
  --font-mono: var(--font-aleo-mono);
+}
+
+html {
+ scroll-behavior: smooth;
 }
 
 body {

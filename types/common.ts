@@ -1,12 +1,27 @@
 // Type definitions for content structure
+export type Inlines = {
+ [key: string]:
+  | {
+     type: "link";
+     href: string;
+     className?: string;
+    }
+  | {
+     type: "span";
+     className?: string;
+    };
+};
+
 export type ParagraphContent = {
  type: "paragraph";
  text: string;
+ inlines?: Inlines;
 };
 
 export type NewLineContent = {
  type: "new-line";
  text: string;
+ inlines?: Inlines;
 };
 
 export type ImageContent = {
@@ -19,6 +34,7 @@ export type ListItem = {
  text: string;
  href?: string;
  sublist?: ListItem[];
+ inlines?: Inlines;
 };
 
 export type ListContent = {

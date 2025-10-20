@@ -8,6 +8,7 @@ import { getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 import Header from "@/components/common/header";
 import Footer from "@/components/common/footer";
+import ScrollUpButton from "@/components/custom/scroll-up-button";
 
 const aleoMono = Aleo({
  variable: "--font-aleo-mono",
@@ -41,10 +42,11 @@ export default async function RootLayout({
     className={`${aleoMono.variable} flex min-h-screen flex-col font-mono text-[17px] font-light antialiased`}
    >
     <NextIntlClientProvider messages={messages}>
-     <div id="app" className="mx-auto max-w-[1200px]">
+     <div id="app" className="mx-auto flex min-h-screen max-w-[1200px] flex-col">
       <Header />
       <main className="flex-stretch bg-white p-[30px] md:p-10">{children}</main>
       <Footer />
+      <ScrollUpButton />
      </div>
     </NextIntlClientProvider>
     <Analytics />

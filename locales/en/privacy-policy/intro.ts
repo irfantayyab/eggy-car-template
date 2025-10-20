@@ -6,12 +6,36 @@ export const intro: Section = {
  content: [
   {
    type: "paragraph",
-   text: "Welcome to Eggy Car!",
+   text: "Welcome to <1>Eggy Car<1>!",
+   inlines: {
+    "1": {
+     type: "span",
+     className: "font-bold",
+    },
+   },
   },
   {
    type: "new-line",
    text:
-    "By accessing or using our website (eggycar.one), you agree to comply with and be bound by the following Terms and Conditions. Please read them carefully before using our services.",
+    "By accessing or using our website (<1>eggycar.one<1>), you agree to comply with and be bound by the following Terms and Conditions. Please read them carefully before using our services.",
+   inlines: {
+    "1": {
+     type: "link",
+     href: "/",
+    },
+   },
+  },
+  {
+   type: "subsection",
+   id: "use-of-the-website",
+   title: "1. Use of the Website",
+   content: [
+    {
+     type: "paragraph",
+     text:
+      "You agree to use this website only for lawful purposes and in a way that does not violate the rights of others or restrict their use of the site. Any misuse or attempt to damage the website is strictly prohibited.",
+    },
+   ],
   },
   {
    type: "subsection",
@@ -21,7 +45,17 @@ export const intro: Section = {
     {
      type: "paragraph",
      text:
-      "All content on eggycar.one, including text, graphics, logos, and game materials, is the property of Eggy Car or its respective owners. You may not copy, reproduce, or distribute any materials without written permission.",
+      "All content on <1>eggycar.one<1>, including text, graphics, logos, and game materials, is the property of <2>Eggy Car<2> or its respective owners. You may not copy, reproduce, or distribute any materials without written permission.",
+     inlines: {
+      "1": {
+       type: "span",
+       className: "font-bold",
+      },
+      "2": {
+       type: "span",
+       className: "font-bold",
+      },
+     },
     },
    ],
   },
@@ -57,7 +91,13 @@ export const intro: Section = {
     {
      type: "paragraph",
      text:
-      "Eggy Car will not be held liable for any direct or indirect damages resulting from the use or inability to use our website or its content.",
+      "<1>Eggy Car<1> will not be held liable for any direct or indirect damages resulting from the use or inability to use our website or its content.",
+     inlines: {
+      "1": {
+       type: "span",
+       className: "font-bold",
+      },
+     },
     },
    ],
   },
@@ -84,7 +124,13 @@ export const intro: Section = {
     },
     {
      type: "new-line",
-     text: "📧 support@eggycar.one",
+     text: "📧 <1>support@eggycar.one<1>",
+     inlines: {
+      "1": {
+       type: "link",
+       href: "mailto:support@eggycar.one",
+      },
+     },
     },
    ],
   },

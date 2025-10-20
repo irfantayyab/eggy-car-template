@@ -7,7 +7,7 @@ import SectionContent from "@/components/common/section-content";
 import Footer from "@/components/common/footer";
 import "./globals.css";
 import { Aleo } from "next/font/google";
-import { routing } from "@/i18n/routing";
+import { Locale, routing } from "@/i18n/routing";
 
 const aleoMono = Aleo({
  variable: "--font-aleo-mono",
@@ -16,12 +16,9 @@ const aleoMono = Aleo({
 
 export default async function NotFound() {
  const headersList = await headers();
- const pathname = headersList.get("x-invoke-path") || "";
-
- const segments = pathname.split("/").filter(Boolean);
- const locale = (
-  routing.locales.includes(segments[0] as any) ? segments[0] : routing.defaultLocale
- ) as string;
+ const referer = headersList.get("referer") || "";
+ const match = referer.match(/^https?:\/\/[^/]+\/([^/]+)/);
+ const locale = routing.locales.includes((match?.[1] ?? "") as Locale) ? match![1] : routing.defaultLocale;
 
  const messages = await getMessages({ locale });
  const t = await getTranslations({ locale, namespace: "NotFound" });
@@ -34,14 +31,16 @@ export default async function NotFound() {
     className={`${aleoMono.variable} flex min-h-screen flex-col font-mono text-[17px] font-light antialiased`}
    >
     <NextIntlClientProvider messages={messages} locale={locale}>
-     <Header />
-     <main className="flex-stretch bg-white p-[30px] md:p-10">
-      <section>
-       <Heading>{title}</Heading>
-       <SectionContent content={content} />
-      </section>
-     </main>
-     <Footer />
+     <div id="app" className="mx-auto flex min-h-screen w-full max-w-[1200px] flex-col">
+      <Header />
+      <main className="flex-stretch bg-white p-[30px] md:p-10">
+       <section>
+        <Heading>{title}</Heading>
+        <SectionContent content={content} />
+       </section>
+      </main>
+      <Footer />
+     </div>
     </NextIntlClientProvider>
    </body>
   </html>

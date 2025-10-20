@@ -2,17 +2,17 @@ import { LocaleContent, Section } from "@/types/common";
 
 export const intro: Section = {
  id: "not-found",
- title: "Oops! That page can’t be found.",
+ title: "¡Vaya! No se puede encontrar esa página.",
  content: [
   {
    type: "paragraph",
-   text: "It looks like nothing was found at this location. Maybe try searching?",
+   text: "Parece que no se encontró nada en esta ubicación. ¿Quizás probar con una búsqueda?",
   },
  ],
 };
 
-const en = {
+const es = {
  intro,
 } as const satisfies LocaleContent;
 
-export default en;
+export default es;

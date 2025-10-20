@@ -4,6 +4,7 @@ import React from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
 import { Link } from "@/i18n/routing";
 import { Minus, Plus } from "lucide-react";
+import { parseRichText } from "@/lib/parse-rich-text";
 
 function SectionContent({ content }: { content: ContentItem[] }) {
  return (
@@ -15,13 +16,13 @@ function SectionContent({ content }: { content: ContentItem[] }) {
      if (block.type === "paragraph") {
       return (
        <p key={i} className={cn(!isNextNewLine ? "mb-[25.5px]" : "")}>
-        {block.text}
+        {parseRichText(block.text, block.inlines)}
        </p>
       );
      } else if (block.type === "new-line") {
       return (
        <p key={i} className={cn(!isNextNewLine ? "mb-[25.5px]" : "")}>
-        {block.text}
+        {parseRichText(block.text, block.inlines)}
        </p>
       );
      } else if (block.type === "image") {
@@ -55,13 +56,13 @@ function SectionContent({ content }: { content: ContentItem[] }) {
                 {contentItem.listItems.map((li, l) => {
                  return (
                   <li key={l}>
-                   <Link href={li.href || "#"}>{li.text}</Link>
+                   <Link href={li.href || "#"}>{parseRichText(li.text, li.inlines)}</Link>
                    {li.sublist && (
                     <ul className="ml-[1.5em] list-disc">
                      {li.sublist.map((sli, m) => {
                       return (
                        <li key={m}>
-                        <Link href={sli.href || "#"}>{sli.text}</Link>
+                        <Link href={sli.href || "#"}>{parseRichText(sli.text, sli.inlines)}</Link>
                        </li>
                       );
                      })}
@@ -124,16 +125,17 @@ function SectionContent({ content }: { content: ContentItem[] }) {
         </h3>
         {block.content.map((subBlock, j, arrJ) => {
          const isNextNewLine = arrJ[j + 1]?.type === "new-line";
+
          if (subBlock.type === "paragraph") {
           return (
            <p key={j} className={cn(!isNextNewLine ? "mb-[25.5px]" : "")}>
-            {subBlock.text}
+            {parseRichText(subBlock.text, subBlock.inlines)}
            </p>
           );
          } else if (subBlock.type === "new-line") {
           return (
            <p key={j} className={cn(!isNextNewLine ? "mb-[25.5px]" : "")}>
-            {subBlock.text}
+            {parseRichText(subBlock.text, subBlock.inlines)}
            </p>
           );
          }
@@ -145,7 +147,7 @@ function SectionContent({ content }: { content: ContentItem[] }) {
       return (
        <ul key={i} className="mb-[25.5px] list-disc pl-[3em] leading-[1.5]">
         {block.listItems.map((li, j) => {
-         return <li key={j}>{li.text}</li>;
+         return <li key={j}>{parseRichText(li.text, li.inlines)}</li>;
         })}
        </ul>
       );

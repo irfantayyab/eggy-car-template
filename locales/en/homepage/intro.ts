@@ -7,7 +7,13 @@ export const intro: Section = {
   {
    type: "paragraph",
    text:
-    "Picture yourself driving a quirky car with an egg so delicate it's like a soap bubble ready to pop. Eggy Car's a simple game with a sneaky challenge: roll as far as possible without scrambling that egg. Eggy Car Unblocked keeps things easy to control. Gas and brakes need spot-on timing, like threading a needle. Hills and bumps make the road a rollercoaster of chaos. A single slip sends the egg crashing like a dropped plate. Drive slow, keep steady, and brace for a crazy, fun adventure that'll have you hooked!",
+    "Picture yourself driving a quirky car with an egg so delicate it's like a soap bubble ready to pop. <1>Eggy Car<1>'s a simple game with a sneaky challenge: roll as far as possible without scrambling that egg. Eggy Car Unblocked keeps things easy to control. Gas and brakes need spot-on timing, like threading a needle. Hills and bumps make the road a rollercoaster of chaos. A single slip sends the egg crashing like a dropped plate. Drive slow, keep steady, and brace for a crazy, fun adventure that'll have you hooked!",
+   inlines: {
+    "1": {
+     type: "link",
+     href: "/",
+    },
+   },
   },
   {
    type: "accordion-1",

@@ -5,7 +5,7 @@ export const LANGUAGES = [
  { name: "Bahasa Indonesia", short: "id", flag: "🇮🇩" },
  { name: "Português", short: "pt", flag: "🇧🇷" },
  { name: "Azərbaycan", short: "az", flag: "🇦🇿" },
- { name: "中文 (中国)", short: "zh-CN", flag: "🇨🇳" },
+ { name: "中文 (中国)", short: "zh", flag: "🇨🇳" },
  { name: "Français", short: "fr", flag: "🇫🇷" },
  { name: "日本語", short: "ja", flag: "🇯🇵" },
  { name: "Deutsch", short: "de", flag: "🇩🇪" },
