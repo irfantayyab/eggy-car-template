@@ -69,6 +69,12 @@ export type SubsectionContent = {
  content: ContentItem[];
 };
 
+export type LinkContent = {
+ type: "link";
+ href: string;
+ text: string;
+};
+
 export type ContentItem =
  | ParagraphContent
  | NewLineContent
@@ -76,7 +82,8 @@ export type ContentItem =
  | ListContent
  | AccordionContent
  | FAQContent
- | SubsectionContent;
+ | SubsectionContent
+ | LinkContent;
 
 export type Section = {
  id?: string;

@@ -8,6 +8,11 @@ export const intro: Section = {
    type: "paragraph",
    text: "It looks like nothing was found at this location. Maybe try searching?",
   },
+  {
+   type: "link",
+   href: "/",
+   text: "Go back to homepage",
+  },
  ],
 };
 

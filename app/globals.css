@@ -88,5 +88,5 @@ button {
 }
 
 .gradient-box-shadow {
- box-shadow: inset 0px 0px 60px -15px rgba(246, 255, 21, 0.91);
+ box-shadow: inset 0px 0px 60px -15px var(--primary);
 }

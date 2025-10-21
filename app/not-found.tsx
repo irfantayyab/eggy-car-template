@@ -8,6 +8,7 @@ import Footer from "@/app/[locale]/footer";
 import "./globals.css";
 import { Aleo } from "next/font/google";
 import { Locale, routing } from "@/i18n/routing";
+import ThemeContextProvider from "@/contexts/theme-context";
 
 const aleoMono = Aleo({
  variable: "--font-aleo-mono",
@@ -28,20 +29,22 @@ export default async function NotFound() {
  return (
   <html lang={locale} suppressHydrationWarning>
    <body
-    className={`${aleoMono.variable} flex min-h-screen flex-col font-mono text-[17px] font-light antialiased`}
+    className={`${aleoMono.variable} bg-html-background text-body flex min-h-screen flex-col font-mono text-[17px] font-light antialiased`}
    >
-    <NextIntlClientProvider messages={messages} locale={locale}>
-     <div id="app" className="mx-auto flex min-h-screen w-full max-w-[1200px] flex-col">
-      <Header />
-      <main className="flex-stretch bg-white p-[30px] md:p-10">
-       <section>
-        <Heading>{title}</Heading>
-        <SectionContent content={content} />
-       </section>
-      </main>
-      <Footer />
-     </div>
-    </NextIntlClientProvider>
+    <ThemeContextProvider>
+     <NextIntlClientProvider messages={messages} locale={locale}>
+      <div id="app" className="mx-auto flex min-h-screen w-full max-w-[1200px] flex-col">
+       <Header />
+       <main className="flex-stretch bg-background p-[30px] md:p-10">
+        <section>
+         <Heading>{title}</Heading>
+         <SectionContent content={content} />
+        </section>
+       </main>
+       <Footer />
+      </div>
+     </NextIntlClientProvider>
+    </ThemeContextProvider>
    </body>
   </html>
  );

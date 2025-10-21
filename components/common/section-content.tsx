@@ -4,6 +4,7 @@ import React from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
 import { Minus, Plus } from "lucide-react";
 import { parseRichText } from "@/lib/parse-rich-text";
+import Link from "next/link";
 
 function SectionContent({ content }: { content: ContentItem[] }) {
  return (
@@ -149,6 +150,12 @@ function SectionContent({ content }: { content: ContentItem[] }) {
          return <li key={j}>{parseRichText(li.text, li.inlines)}</li>;
         })}
        </ul>
+      );
+     } else if (block.type === "link") {
+      return (
+       <Link key={i} href={block.href} className="bg-primary text-primary-foreground block w-fit px-3 py-2">
+        {block.text}
+       </Link>
       );
      }
      return null;

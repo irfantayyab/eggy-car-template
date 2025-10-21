@@ -2,11 +2,11 @@ import { LocaleContent, Section } from "@/types/common";
 
 export const intro: Section = {
  id: "not-found",
- title: "¡Vaya! No se puede encontrar esa página.",
+ title: "Oops! That page can’t be found.",
  content: [
   {
    type: "paragraph",
-   text: "Parece que no se encontró nada en esta ubicación. ¿Quizás probar con una búsqueda?",
+   text: "It looks like nothing was found at this location. Maybe try searching?",
   },
  ],
 };

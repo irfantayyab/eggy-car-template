@@ -1,3 +1,4 @@
+import { routing } from "@/i18n/routing";
 import Conclusion from "./conclusion";
 import EarnRewards from "./earn-rewards";
 import FAQs from "./faqs";
@@ -13,6 +14,12 @@ import SafeForChildren from "./safe-for-children";
 import TipsAndTricks from "./tips-and-tricks";
 import Upgrades from "./upgrades";
 import WhatIsEggyCar from "./what-is-eggy-car";
+
+export async function generateStaticParams() {
+ return routing.locales.map(locale => ({
+  locale: locale,
+ }));
+}
 
 export default function HomePage() {
  return (

@@ -10,17 +10,34 @@ import Header from "@/app/[locale]/header";
 import Footer from "@/app/[locale]/footer";
 import ScrollUpButton from "@/components/custom/scroll-up-button";
 import ThemeContextProvider from "@/contexts/theme-context";
+import { generateSEOMetadata } from "@/lib/generate-metadata";
 
 const aleoMono = Aleo({
  variable: "--font-aleo-mono",
  subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
- title: "Eggy Car Play Unblocked For Free (Offical)",
- description:
-  "Eggy Car’s a wild ride! Steer a car with a fragile egg over bumpy hills. One wrong move, and the egg cracks like a dropped glass!",
-};
+export async function generateMetadata({
+ params,
+}: {
+ params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+ const { locale } = await params;
+
+ return generateSEOMetadata({
+  locale,
+  title: "Eggy Car Play Unblocked For Free (Official)",
+  description: "Eggy Car's a wild ride! Steer a car with a fragile egg over bumpy hills.",
+  keywords: ["eggy car", "unblocked games", "car games"],
+  image: `${process.env.NEXT_PUBLIC_BASE_URL}/og-image.png`,
+ });
+}
+
+export async function generateStaticParams() {
+ return routing.locales.map(locale => ({
+  locale: locale,
+ }));
+}
 
 export default async function RootLayout({
  children,
@@ -44,7 +61,7 @@ export default async function RootLayout({
    >
     <ThemeContextProvider>
      <NextIntlClientProvider messages={messages}>
-      <div id="app" className="mx-auto flex min-h-screen max-w-[1200px] flex-col">
+      <div id="app" className="mx-auto flex min-h-screen w-full max-w-[1200px] flex-col">
        <Header />
        <main className="flex-stretch bg-background p-[30px] md:p-10">{children}</main>
        <Footer />

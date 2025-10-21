@@ -16,7 +16,7 @@ function Footer() {
      </Link>{" "}
      | Official Unblocked Play Online
     </p>
-    <nav className="flex gap-1">
+    <nav className="flex flex-col gap-1 text-center sm:flex-row sm:text-left">
      {FOOTER_NAV_LINKS.map((link, i) => {
       return (
        <Link key={link.id} href={link.href} className="underline">

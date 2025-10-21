@@ -1,12 +1,13 @@
 const es = {
- p1: "¿Qué tan útil fue esta publicación?",
- p2a: "¡Haz clic en una estrella para calificar!",
- p2b: "¡Has calificado esta publicación!",
- p3: "Calificación promedio",
- p4: "Número de votos:",
- p5: "¡Gracias por calificar esta publicación!",
- saving: "Guardando tu calificación...",
- alreadyVoted: "¡Ya has votado!",
- voteFailed: "No se pudo guardar la calificación. Por favor, inténtalo de nuevo.",
+ p1: "How useful was this post?",
+ p2a: "Click on a star to rate it!",
+ p2b: "You rated this post!",
+ p3: "Average rating",
+ p4: "Vote count:",
+ p5: "Thank you for rating this post!",
+ saving: "Saving your rating...",
+ alreadyVoted: "You've already voted!",
+ voteFailed: "Failed to save rating. Please try again.",
 };
+
 export default es;
