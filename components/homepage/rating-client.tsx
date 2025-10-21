@@ -20,7 +20,6 @@ const generateFingerprint = (): string => {
   ctx.font = "14px Arial";
   ctx.fillText("fingerprint", 2, 2);
  }
-
  const fingerprint = [
   navigator.userAgent,
   navigator.language,
@@ -29,7 +28,6 @@ const generateFingerprint = (): string => {
   new Date().getTimezoneOffset(),
   canvas.toDataURL(),
  ].join("|");
-
  // Simple hash function
  let hash = 0;
  for (let i = 0; i < fingerprint.length; i++) {
@@ -48,7 +46,6 @@ function RatingClient({ postId, initialData }: { postId: string; initialData: Ra
  const [hasVoted, setHasVoted] = useState(false);
  const [userFingerprint, setUserFingerprint] = useState<string>("");
  const [isSubmitting, setIsSubmitting] = useState(false);
-
  const t = useTranslations("Rating");
 
  // Generate fingerprint on mount and check if user has voted
@@ -56,12 +53,12 @@ function RatingClient({ postId, initialData }: { postId: string; initialData: Ra
   const fp = generateFingerprint();
   setUserFingerprint(fp);
 
-  // Check if user has voted using fingerprint from server
-  if (initialData.voters.includes(fp)) {
+  // Check if user has voted using fingerprint from server OR localStorage
+  const storedRating = getStoredRating(postId);
+
+  if (initialData.voters.includes(fp) || storedRating !== null) {
    setHasVoted(true);
-   // Try to get rating from memory (could enhance this)
-   const storedRating = getStoredRating(postId);
-   if (storedRating) {
+   if (storedRating !== null) {
     setRating(storedRating);
    }
   }
@@ -92,17 +89,14 @@ function RatingClient({ postId, initialData }: { postId: string; initialData: Ra
 
   try {
    const ratingDoc = doc(db, "ratings", postId);
-
    // Check one more time if user has voted (race condition protection)
    const docSnap = await getDoc(ratingDoc);
-
    if (docSnap.exists()) {
     const voters = docSnap.data().voters || [];
     if (voters.includes(userFingerprint)) {
      alert(t("alreadyVoted"));
      return;
     }
-
     // Update existing document
     await updateDoc(ratingDoc, {
      totalVotes: increment(1),
@@ -119,7 +113,6 @@ function RatingClient({ postId, initialData }: { postId: string; initialData: Ra
      createdAt: new Date().toISOString(),
     });
    }
-
    // Update local state
    setSumRatings(sumRatings + value);
    setTotalVotes(totalVotes + 1);
@@ -138,23 +131,36 @@ function RatingClient({ postId, initialData }: { postId: string; initialData: Ra
  };
 
  const handleStarHover = (value: number) => {
-  if (rating === 0 && !hasVoted) {
+  if (!hasVoted) {
    setHoverRating(value);
   }
  };
 
  const handleMouseLeave = () => {
-  if (rating === 0 && !hasVoted) {
+  if (!hasVoted) {
    setHoverRating(0);
   }
  };
 
  const averageRating = totalVotes > 0 ? (sumRatings / totalVotes).toFixed(1) : "0";
- const displayRating = rating > 0 ? rating : hoverRating;
+
+ // Show user's rating if they voted, otherwise show hover state
+ const displayRating = hasVoted ? rating : hoverRating;
 
  const StarIcon = ({ fillPercentage, index }: { fillPercentage: number; index: number }) => {
-  const isHovering = rating === 0 && hoverRating > 0;
-  const fill = fillPercentage > 0 ? (isHovering ? "#ffcc36" : "#ffe699") : "#D1D5DB";
+  const isHovering = !hasVoted && hoverRating > 0;
+  const isUserRating = hasVoted && rating > 0;
+
+  // Different colors for different states
+  let fill = "#D1D5DB"; // Default gray
+  if (isUserRating && fillPercentage > 0) {
+   fill = "#fbbf24"; // Solid gold for user's rating
+  } else if (isHovering && fillPercentage > 0) {
+   fill = "#ffcc36"; // Bright yellow for hover
+  } else if (fillPercentage > 0) {
+   fill = "#ffe699"; // Light yellow for average
+  }
+
   const isDisabled = hasVoted || isSubmitting;
 
   return (
