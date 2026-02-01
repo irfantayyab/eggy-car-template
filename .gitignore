@@ -42,3 +42,5 @@ next-env.d.ts
 
 .vercel
 /public/images/products/
+.vercel
+.env*.local
